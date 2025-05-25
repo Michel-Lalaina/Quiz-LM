@@ -48,7 +48,7 @@ const Users = () => {
     };
 
     return (
-        <div className="w-full mx-auto mt-10 p-4 bg-white shadow-md rounded-lg">
+        <div className="w-1/2 mx-auto mt-10 p-4 bg-white shadow-md rounded-lg">
             <div className="w-full">
             <h1 className="text-xl font-bold mb-4">Gestion des Utilisateurs</h1>
             <form onSubmit={handleSubmit} className="mb-4">

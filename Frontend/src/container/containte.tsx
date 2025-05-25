@@ -7,7 +7,7 @@ import Left from "../users/layouts/left";
 
 export default function Home() {
   return (
-    <div className=" w-screen bg-gray-100">
+    <div className=" w-screen ">
 
       {/* Header component */}
       <Header />

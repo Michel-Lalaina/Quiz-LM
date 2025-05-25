@@ -1,11 +1,13 @@
-
-import FormationInfoCard from "./components/ListQuizs"
-
-export const HomeAdmin: React.FC = () => {
+import Score from "./components/Dashboard/tableScore";
+import Sidebar from "./components/sidebar";
 
 
-    return (<div className="flex w-full">
-        <FormationInfoCard/>
+export default function HomeAdmin() {
+
+    return(
+    <div className="flex min-h-screen bg-gray-100">
+      <Sidebar/>
+      <Score/>
     </div>
     )
 }

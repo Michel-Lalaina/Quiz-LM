@@ -3,7 +3,7 @@ import axios from "axios";
 // URL de ton backend FastAPI
 const API_URL = "http://127.0.0.1:8000";
 
-export const getQuiz = async () => {
+export const getQuizs = async () => {
     try {
       const response = await axios.get(`${API_URL}/quizconnaissance`);
       return response.data; 
