@@ -14,7 +14,7 @@ export default function Sidebar() {
         <Button
           variant="text"
           startIcon={<BarChartIcon className="text-gray-600" />}
-          className="justify-start text-left" 
+          className="justify-start text-left" onClick={() => navigate("/admin")}
         >
           Dashboard
         </Button>
@@ -28,7 +28,7 @@ export default function Sidebar() {
         <Button
           variant="text"
           startIcon={<GroupIcon className="text-gray-600" />}
-          className="justify-start text-left" onClick={() => navigate("/liste")}
+          className="justify-start text-left" onClick={() => navigate("liste")}
         >
           Utilisateurs
         </Button>

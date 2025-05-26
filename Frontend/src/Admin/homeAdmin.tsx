@@ -1,13 +1,15 @@
-import Score from "./components/Dashboard/tableScore";
+import { Outlet } from "react-router-dom";
 import Sidebar from "./components/sidebar";
+import HeaderAdmin from "./components/headerAdmin";
 
 
 export default function HomeAdmin() {
 
     return(
-    <div className="flex min-h-screen bg-gray-100">
+    <div className=" min-h-screen bg-gray-100">
+      <HeaderAdmin/>
       <Sidebar/>
-      <Score/>
+      <Outlet/>
     </div>
     )
 }

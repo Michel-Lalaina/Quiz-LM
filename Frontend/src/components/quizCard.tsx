@@ -3,6 +3,7 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 import AvatarGroup from "@mui/material/AvatarGroup";
+import Acceuil from "./Intro";
 
 const quizzes = [
   {
@@ -33,6 +34,7 @@ const QuizCards: React.FC = () => {
 
   return (
     <div className="max-w-7xl mx-auto p-6">
+      <Acceuil/>
       <h2 className="text-2xl font-bold mb-2">Quiz</h2>
       <p className="text-gray-600 mb-6">Choisissez un type de quiz et testez vos compétences.</p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

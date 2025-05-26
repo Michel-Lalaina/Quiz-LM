@@ -1,32 +1,47 @@
-import Home from "./containte";
-import  HomeAdmin  from "../Admin/homeAdmin";
-import Users from "../Admin/components/AddUser";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Log from "../users/Pages/Login";
+
+// Admin layout et pages
+import MainLayout from "../Admin/layouts/MainLayout";
+import Score from "../Admin/components/Dashboard/tableScore";
+
+
+// User layout et pages
+import Home from "./containte"; // ce fichier sert de layout user
+import QuizCards from "../components/quizCard";
+import QuizConnaissance from "../users/Pages/QuizConnaissance";
+import QuizIntellect from "../users/Pages/QuizIntelligence";
+import QuizMemoire from "../users/Pages/QuizMemoire";
 import UserStats from "../users/statUser";
 import SettingsPage from "../users/Pages/Setting";
-import QuizMemoire from "../users/Pages/QuizMemoire";
-import QuizIntellect from "../users/Pages/QuizIntelligence";
-import QuizConnaissance from "../users/Pages/QuizConnaissance";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Log from "../users/Pages/Login";
-import { UserList } from "../Admin/components/userList";
+import  UserManage  from "../Admin/pages/userMange";
 
-function App() {
+export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/home" element={<Home />} />
-        <Route path="/quizConnaissance" element={<QuizConnaissance />} />
-        <Route path="/quizIntelligence" element={<QuizIntellect />} />
-        <Route path="/userState/:userId" element={<UserStats />} /> 
-        <Route path="/quizMemoire" element={<QuizMemoire />} />
-        <Route path="/settings" element={<SettingsPage />} />
-        <Route path="/admin" element={<HomeAdmin/>}/>
-        <Route path="/liste" element={<UserList/>}/>
-        <Route path="/user" element={<Users/>} />
-        <Route path="/" element={<Log/>} />
+
+        {/* Login page only */}
+        <Route path="/" element={<Log />} />
+
+        {/* Admin section */}
+        <Route path="/admin" element={<MainLayout />}>
+          <Route index element={<Score />} />
+          <Route path="liste" element={<UserManage />} />
+        </Route>
+
+        {/* User section */}
+        <Route path="/user" element={<Home />}>
+          <Route index element={<QuizCards />} />
+          <Route path="quizConnaissance" element={<QuizConnaissance />} />
+          <Route path="quizIntelligence" element={<QuizIntellect />} />
+          <Route path="quizMemoire" element={<QuizMemoire />} />
+          <Route path="userState/:userId" element={<UserStats />} />
+          <Route path="settings" element={<SettingsPage />} />
+        </Route>
+
       </Routes>
     </BrowserRouter>
   );
 }
-
-export default App;

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getUsers, createUser, updateUser, deleteUser } from "../services/apiUser";
+import { getUsers, createUser, updateUser, deleteUser } from "../../services/apiUser";
 
 interface User {
     id: number;
@@ -7,7 +7,7 @@ interface User {
     email: string;
 }
 
-const Users = () => {
+export const AddUser = () => {
     const [users, setUsers] = useState<User[]>([]);
     const [nom, setNom] = useState("");
     const [email, setEmail] = useState("");
@@ -98,4 +98,4 @@ const Users = () => {
     );
 };
 
-export default Users;
+

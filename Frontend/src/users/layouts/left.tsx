@@ -13,28 +13,28 @@ const Left: React.FC = () => {
       <ul className="flex flex-col items-center md:items-start space-y-6 px-2">
         <li
           className="flex items-center space-x-3 cursor-pointer hover:scale-105 transition-transform hover:bg-white hover:text-blue-600 px-3 py-2 rounded-xl w-full"
-          onClick={() => navigate("/userState/:userId")}
+          onClick={() => navigate("userState/:userId")}
         >
           <DashboardIcon fontSize="medium" />
           <span className="hidden md:inline font-medium text-sm">Tableau</span>
         </li>
         <li
           className="flex items-center space-x-3 cursor-pointer hover:scale-105 transition-transform hover:bg-white hover:text-blue-600 px-3 py-2 rounded-xl w-full"
-          onClick={() => navigate("/quizConnaissance")}
+          onClick={() => navigate("quizConnaissance")}
         >
           <QuizIcon fontSize="medium" />
           <span className="hidden md:inline font-medium text-sm">Connaissance</span>
         </li>
         <li
           className="flex items-center space-x-3 cursor-pointer hover:scale-105 transition-transform hover:bg-white hover:text-blue-600 px-3 py-2 rounded-xl w-full"
-          onClick={() => navigate("/quizIntelligence")}
+          onClick={() => navigate("quizIntelligence")}
         >
           <PsychologyIcon fontSize="medium" />
           <span className="hidden md:inline font-medium text-sm">Intelligence</span>
         </li>
         <li
           className="flex items-center space-x-3 cursor-pointer hover:scale-105 transition-transform hover:bg-white hover:text-blue-600 px-3 py-2 rounded-xl w-full"
-          onClick={() => navigate("/quizMemoire")}
+          onClick={() => navigate("quizMemoire")}
         >
           <MemoryIcon fontSize="medium" />
           <span className="hidden md:inline font-medium text-sm">Mémoire</span>

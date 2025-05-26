@@ -29,7 +29,7 @@ export default function Header() {
           {/* Left menu */}
           <div className="flex items-center space-x-1 sm:space-x-4 text-gray-800">
             <Tooltip title="Accueil" arrow>
-              <IconButton onClick={() => navigate("/")} color="inherit">
+              <IconButton onClick={() => navigate("/user")} color="inherit">
                 <HomeIcon />
               </IconButton>
             </Tooltip>
