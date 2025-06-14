@@ -16,6 +16,7 @@ import QuizMemoire from "../users/Pages/QuizMemoire";
 import UserStats from "../users/statUser";
 import SettingsPage from "../users/Pages/Setting";
 import  UserManage  from "../Admin/pages/userMange";
+import ManageQuizs from "../Admin/pages/QuizManage";
 
 export default function App() {
   return (
@@ -28,6 +29,7 @@ export default function App() {
         {/* Admin section */}
         <Route path="/admin" element={<MainLayout />}>
           <Route index element={<Score />} />
+          <Route path="ManageQuizs" element={<ManageQuizs/>}/>
           <Route path="liste" element={<UserManage />} />
         </Route>
 

@@ -1,18 +1,18 @@
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
+import { useNavigate } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
 import QuizIcon from "@mui/icons-material/Quiz";
+import IconButton from "@mui/material/IconButton";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import PsychologyIcon from "@mui/icons-material/Psychology";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import PsychologyIcon from "@mui/icons-material/Psychology";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import InstagramIcon from "@mui/icons-material/Instagram";
 
 export default function Header() {
   const navigate = useNavigate();
@@ -106,11 +106,12 @@ export default function Header() {
                 <NotificationsIcon />
               </IconButton>
             </Tooltip>
-            <Tooltip title="Mon compte" arrow>
-              <IconButton onClick={() => navigate("/profile")} color="inherit">
+            <Tooltip title="Se deconnecter" arrow>
+              <IconButton onClick={() => navigate("/")} color="inherit">
                 <AccountCircleIcon />
               </IconButton>
             </Tooltip>
+
           </div>
         </Toolbar>
       </AppBar>
