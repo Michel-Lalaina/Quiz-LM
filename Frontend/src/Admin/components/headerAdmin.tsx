@@ -3,28 +3,40 @@ import React from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import IconButton from "@mui/material/IconButton";
+
 import QuizIcon from "@mui/icons-material/Quiz";
-import AccountCircle from "@mui/icons-material/AccountCircle";
+
+import Box from "@mui/material/Box";
+import Avatar from "@mui/material/Avatar";
+import Tooltip from "@mui/material/Tooltip";
 
 const HeaderAdmin: React.FC = () => {
   return (
-    <AppBar position="sticky" className="bg-white shadow-md border-b border-gray-200 z-50">
-      <Toolbar className="flex justify-between">
-        <div className="flex items-center space-x-3">
-          <QuizIcon className="text-blue-600" fontSize="large" />
-          <Typography variant="h6" className="text-gray-800 font-bold">
-            Admin Quiz Panel
-          </Typography>
-        </div>
+    <AppBar
+      position="sticky"
+      elevation={0}
+      className="bg-gradient-to-r from-purple-100 via-pink-50 to-yellow-100 border-b border-gray-200 shadow-sm z-50"
+    >
+      <Toolbar className="flex justify-between px-6 py-3">
         <div className="flex items-center space-x-4">
-          <Typography variant="body1" className="text-gray-600">
+          <QuizIcon  fontSize="large" />
+          <div className="flex flex-col">
+            <Typography variant="h6" className="text-gray-900 font-semibold">
+              Admin Quiz Panel
+            </Typography>
+            <Typography variant="caption" className="text-gray-500">
+              Manage quizzes & users
+            </Typography>
+          </div>
+        </div>
+        <Box className="flex items-center space-x-4">
+          <Typography variant="body2" className="text-gray-700 font-medium">
             Admin
           </Typography>
-          <IconButton>
-            <AccountCircle className="text-blue-600" fontSize="large" />
-          </IconButton>
-        </div>
+          <Tooltip title="Admin Profile">
+            <Avatar className="bg-purple-600 text-white">A</Avatar>
+          </Tooltip>
+        </Box>
       </Toolbar>
     </AppBar>
   );

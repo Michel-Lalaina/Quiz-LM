@@ -6,8 +6,11 @@ import { useEffect, useState } from "react";
 import Email from "@mui/icons-material/Email";
 import TextField from "@mui/material/TextField";
 import CardContent from "@mui/material/CardContent";
-import { getQuizs } from "../../services/apiQuestion";
-import { createQuiz } from "../../services/apiQuestion"; // <-- importer ici
+import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormLabel from "@mui/material/FormLabel";
+import { getQuizs, createQuiz } from "../../services/apiQuestion";
 
 interface QuizProps {
     id: number;
@@ -117,15 +120,20 @@ export const AddForm: React.FC = () => {
                                 value={description}
                                 onChange={(e) => setDescription(e.target.value)}
                             />
-                            <TextField
-                                fullWidth
-                                label="vrai"
-                                name="vrai"
-                                variant="outlined"
-                                value={vrai}
-                                onChange={(e) => setVrai(e.target.value)}
-                                InputProps={{ startAdornment: <Email className="text-gray-500" /> }}
-                            />
+                            <div>
+                                <FormLabel component="legend">Choisir la bonne réponse</FormLabel>
+                                <RadioGroup
+                                    row
+                                    value={vrai}
+                                    onChange={(e) => setVrai(e.target.value)}
+                                    name="vrai"
+                                >
+                                    <FormControlLabel value="A" control={<Radio />} label="A" />
+                                    <FormControlLabel value="B" control={<Radio />} label="B" />
+                                    <FormControlLabel value="C" control={<Radio />} label="C" />
+                                    <FormControlLabel value="D" control={<Radio />} label="D" />
+                                </RadioGroup>
+                            </div>
                             <Button
                                 type="submit"
                                 variant="contained"
@@ -135,6 +143,14 @@ export const AddForm: React.FC = () => {
                                 Enregistrer
                             </Button>
                         </form>
+                        <div className="mt-6">
+                            <h2 className="text-lg font-semibold mb-2">Quiz existants :</h2>
+                            <ul className="list-disc pl-5">
+                                {Quiz.map((q) => (
+                                    <li key={q.id} className="text-gray-700">{q.title}</li>
+                                ))}
+                            </ul>
+                        </div>
                     </CardContent>
                 </Card>
             </div>

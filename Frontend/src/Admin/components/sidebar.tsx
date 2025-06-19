@@ -21,7 +21,7 @@ export default function Sidebar() {
         <Button
           variant="text"
           startIcon={<ChecklistIcon className="text-gray-600" />}
-          className="justify-start text-left"
+          className="justify-start text-left" onClick={() => navigate("ManageQuizs")}
         >
           Gérer Questions
         </Button>
