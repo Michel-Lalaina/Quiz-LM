@@ -49,6 +49,12 @@ return(
         >
           Sign In
         </Button>
+                <Button
+          variant="contained"  fullWidth size="large"
+          className="!bg-blue-600 hover:!bg-blue-700" onClick={() => navigate("Signup")}
+        >
+          Cree compte
+        </Button>
 
         <div className="flex justify-between items-center mt-2">
           <FormControlLabel

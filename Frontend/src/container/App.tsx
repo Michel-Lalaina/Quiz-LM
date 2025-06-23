@@ -17,6 +17,7 @@ import UserStats from "../users/statUser";
 import SettingsPage from "../users/Pages/Setting";
 import  UserManage  from "../Admin/pages/userMange";
 import ManageQuizs from "../Admin/pages/QuizManage";
+import SignUp from "../users/Pages/Singup";
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
 
         {/* Login page only */}
         <Route path="/" element={<Log />} />
+        <Route path="/Signup" element={<SignUp/>} />
 
         {/* Admin section */}
         <Route path="/admin" element={<MainLayout />}>

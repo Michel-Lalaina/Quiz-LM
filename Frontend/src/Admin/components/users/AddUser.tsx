@@ -13,7 +13,6 @@ export const AddUser = () => {
     const [email, setEmail] = useState("");
     const [editingId, setEditingId] = useState<number | null>(null);
 
-    // Charger les utilisateurs
     useEffect(() => {
         fetchUsers();
     }, []);
@@ -48,54 +47,54 @@ export const AddUser = () => {
     };
 
     return (
-        <div className="w-1/2 mx-auto mt-10 p-4 bg-white shadow-md rounded-lg">
-            <div className="w-full">
-            <h1 className="text-xl font-bold mb-4">Gestion des Utilisateurs</h1>
-            <form onSubmit={handleSubmit} className="mb-4">
+        <div className="w-full max-w-3xl mx-auto mt-10 p-8 bg-gradient-to-br from-white to-gray-100 shadow-xl rounded-2xl border border-gray-200">
+            <h1 className="text-3xl font-bold mb-6 text-center text-blue-700">Gestion des Utilisateurs</h1>
+            <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                 <input
                     type="text"
-                    placeholder="Nom"
+                    placeholder="Nom complet"
                     value={nom}
                     onChange={(e) => setNom(e.target.value)}
-                    className="border p-2 w-full mb-2"
+                    className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
                 />
                 <input
                     type="email"
-                    placeholder="Email"
+                    placeholder="Adresse Email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="border p-2 w-full mb-2"
+                    className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
                 />
                 <button
                     type="submit"
-                    className="bg-blue-500 text-white px-4 py-2 rounded w-full">
-                    {editingId ? "Modifier" : "Ajouter"}
+                    className="col-span-1 md:col-span-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg transition-all duration-300"
+                >
+                    {editingId ? "Modifier l'utilisateur" : "Ajouter l'utilisateur"}
                 </button>
             </form>
-            <ul>
+            <ul className="divide-y divide-gray-200">
                 {users.map((user) => (
-                    <li key={user.id} className="flex justify-between items-center border-b py-2">
-                        <span>
-                            {user.nom} - {user.email}
-                        </span>
+                    <li key={user.id} className="flex justify-between items-center py-4">
                         <div>
+                            <p className="text-lg font-medium text-gray-800">{user.nom}</p>
+                            <p className="text-sm text-gray-500">{user.email}</p>
+                        </div>
+                        <div className="flex space-x-2">
                             <button
                                 onClick={() => handleEdit(user)}
-                                className="bg-yellow-500 text-white px-2 py-1 rounded mr-2">
-                                ✏️
+                                className="bg-yellow-400 hover:bg-yellow-500 text-white px-3 py-1 rounded-lg shadow"
+                            >
+                                ✏️ Modifier
                             </button>
                             <button
                                 onClick={() => handleDelete(user.id)}
-                                className="bg-red-500 text-white px-2 py-1 rounded">
-                                🗑️
+                                className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-lg shadow"
+                            >
+                                🗑️ Supprimer
                             </button>
                         </div>
                     </li>
                 ))}
             </ul>
-            </div>
         </div>
     );
 };
-
-
