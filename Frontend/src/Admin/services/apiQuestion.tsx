@@ -1,5 +1,5 @@
 import axios from "axios";
-const API_URL = "http://127.0.0.1:8000"; // URL backend FastAPI
+const API_URL = "http://127.0.0.1:8000"; 
 
 
 export const getQuizs = async () => {
@@ -21,7 +21,7 @@ export const createQuiz = async (
   D: string,
   vrai: string
 ) => {
-  const response = await axios.post(`${API_URL}/quizs`, {
+  const response = await axios.post(`${API_URL}/quizconnaissance`, {
     title,
     description,
     A,
@@ -35,10 +35,10 @@ export const createQuiz = async (
 
 
 export const updateQuiz = async (id: number, nom: string, email: string) => {
-    const response = await axios.put(`${API_URL}/quizs/${id}`, { nom, email });
+    const response = await axios.put(`${API_URL}/quizconnaissance/${id}`, { nom, email });
     return response.data;
 };
 
 export const deleteQuiz = async (id: number) => {
-    await axios.delete(`${API_URL}/quizs/${id}`);
+    await axios.delete(`${API_URL}/quizconnaissance/${id}`);
 };
