@@ -60,71 +60,46 @@ export const AddForm: React.FC = () => {
     };
 
     return (
-        <div className="w-2/4">
+        <div className="w-2/4 h-auto">
             <div className="max-w-5xl mx-auto p-6 md:p-12 bg-white rounded-2xl shadow-lg">
                 <Card className="shadow-md rounded-xl">
                     <CardContent>
                         <form className="space-y-4" onSubmit={handleSubmit}>
                             <TextField
-                                fullWidth
-                                label="title"
-                                name="title"
-                                variant="outlined"
-                                value={title}
+                                fullWidth label="title" name="title" variant="outlined"  value={title}
                                 onChange={(e) => setTitle(e.target.value)}
                                 InputProps={{ startAdornment: <Email className="text-gray-500" /> }}
                             />
                             <TextField
-                                fullWidth
-                                label="A"
-                                name="A"
-                                variant="outlined"
-                                value={A}
+                                fullWidth label="A"  name="A"  variant="outlined"  value={A}
                                 onChange={(e) => setA(e.target.value)}
                                 InputProps={{ startAdornment: <Email className="text-gray-500" /> }}
                             />
                             <TextField
                                 fullWidth
-                                label="B"
-                                name="B"
-                                variant="outlined"
-                                value={B}
+                                label="B" name="B" variant="outlined" value={B}
                                 onChange={(e) => setB(e.target.value)}
                                 InputProps={{ startAdornment: <Email className="text-gray-500" /> }}
                             />
                             <TextField
-                                fullWidth
-                                label="C"
-                                name="C"
-                                variant="outlined"
-                                value={C}
+                                fullWidth label="C"  name="C" variant="outlined"  value={C}
                                 onChange={(e) => setC(e.target.value)}
                                 InputProps={{ startAdornment: <Email className="text-gray-500" /> }}
                             />
                             <TextField
-                                fullWidth
-                                label="D"
-                                name="D"
-                                variant="outlined"
-                                value={D}
+                                fullWidth label="D"  name="D" variant="outlined" value={D}
                                 onChange={(e) => setD(e.target.value)}
                                 InputProps={{ startAdornment: <Send className="text-gray-500" /> }}
                             />
                             <TextField
-                                fullWidth
-                                label="Description"
-                                name="description"
-                                multiline
-                                rows={2}
-                                variant="outlined"
-                                value={description}
+                                fullWidth  label="Description" name="description"  multiline rows={2}
+                                variant="outlined" value={description}
                                 onChange={(e) => setDescription(e.target.value)}
                             />
                             <div>
                                 <FormLabel component="legend">Choisir la bonne réponse</FormLabel>
                                 <RadioGroup
-                                    row
-                                    value={vrai}
+                                    row value={vrai}
                                     onChange={(e) => setVrai(e.target.value)}
                                     name="vrai"
                                 >
@@ -135,16 +110,13 @@ export const AddForm: React.FC = () => {
                                 </RadioGroup>
                             </div>
                             <Button
-                                type="submit"
-                                variant="contained"
-                                color="primary"
+                                type="submit"  variant="contained"  color="primary"
                                 className="w-full md:w-auto flex items-center gap-2"
                             >
                                 Enregistrer
                             </Button>
                         </form>
                         <div className="mt-6">
-                            <h2 className="text-lg font-semibold mb-2">Quiz existants :</h2>
                             <ul className="list-disc pl-5">
                                 {Quiz.map((q) => (
                                     <li key={q.id} className="text-gray-700">{q.title}</li>

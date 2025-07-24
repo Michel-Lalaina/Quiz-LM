@@ -11,12 +11,12 @@ export default function Home() {
       {/* Header component */}
       <Header />
 
-      <div className="flex">
+      <div className="flex p-16 w-screen">
         {/* Sidebar component*/}
         <Left />
 
         {/* Main Content */}
-        <div className=" p-6 flex h-full flex-col justify-center items-center md:ml-64 ml-16 ">
+        <div className="ml-auto flex h-full flex-col justify-center items-center md:ml-64 ">
           <Outlet />
         </div>
       </div>

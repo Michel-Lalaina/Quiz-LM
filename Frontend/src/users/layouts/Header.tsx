@@ -19,7 +19,7 @@ export default function Header() {
 
   return (
     <motion.header
-      className="fixed md:h-1/6 w-full z-50 backdrop-blur-md bg-white/80 shadow-md"
+      className="fixed md:h-20 w-full z-50 backdrop-blur-md bg-white/80 shadow-md"
       initial={{ opacity: 0, y: -30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}

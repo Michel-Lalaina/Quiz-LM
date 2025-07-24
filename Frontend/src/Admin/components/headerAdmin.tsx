@@ -1,45 +1,98 @@
-// Header.tsx
-import React from "react";
+import { motion } from "framer-motion";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-
-import QuizIcon from "@mui/icons-material/Quiz";
-
-import Box from "@mui/material/Box";
-import Avatar from "@mui/material/Avatar";
 import Tooltip from "@mui/material/Tooltip";
+import { useNavigate } from "react-router-dom";
+import HomeIcon from "@mui/icons-material/Home";
+import IconButton from "@mui/material/IconButton";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
+import NotificationsIcon from "@mui/icons-material/Notifications";
+import Logout from "@mui/icons-material/Logout"
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
-const HeaderAdmin: React.FC = () => {
+export default function HeaderAdmin() {
+  const navigate = useNavigate();
+
   return (
-    <AppBar
-      position="sticky"
-      elevation={0}
-      className="bg-gradient-to-r from-purple-100 via-pink-50 to-yellow-100 border-b border-gray-200 shadow-sm z-50"
+    <motion.header
+      className="fixed md:h-20 w-full z-50 backdrop-blur-md bg-white/80 shadow-md"
+      initial={{ opacity: 0, y: -30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
     >
-      <Toolbar className="flex justify-between px-6 py-3">
-        <div className="flex items-center space-x-4">
-          <QuizIcon  fontSize="large" />
-          <div className="flex flex-col">
-            <Typography variant="h6" className="text-gray-900 font-semibold">
-              Admin Quiz Panel
-            </Typography>
-            <Typography variant="caption" className="text-gray-500">
-              Manage quizzes & users
-            </Typography>
-          </div>
-        </div>
-        <Box className="flex items-center space-x-4">
-          <Typography variant="body2" className="text-gray-700 font-medium">
-            Admin
-          </Typography>
-          <Tooltip title="Admin Profile">
-            <Avatar className="bg-purple-600 text-white">A</Avatar>
-          </Tooltip>
-        </Box>
-      </Toolbar>
-    </AppBar>
-  );
-};
+      <AppBar position="sticky" color="transparent" elevation={0}>
+        <Toolbar className="flex justify-between items-center px-4 sm:px-8">
+          {/* Left menu */}
+          <div className="flex items-center space-x-1 sm:space-x-4 text-gray-800">
+            <Tooltip title="Accueil" arrow>
+              <IconButton onClick={() => navigate("/user")} color="inherit">
+                <HomeIcon />
+              </IconButton>
+            </Tooltip>
 
-export default HeaderAdmin;
+            <Tooltip title="Résultats" arrow>
+              <IconButton onClick={() => navigate("/resultats")} color="inherit">
+                <EmojiEventsIcon />
+              </IconButton>
+            </Tooltip>
+          </div>
+
+          {/* Centre : logo */}
+<AccountCircleIcon/>
+          {/* Right icons */}
+          <div className="flex items-center space-x-2 sm:space-x-4 text-gray-800">
+            {/* Socials */}
+            <Tooltip title="Facebook" arrow>
+              <IconButton
+                component="a"
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FacebookIcon fontSize="small" />
+              </IconButton>
+            </Tooltip>
+            <Tooltip title="Twitter" arrow>
+              <IconButton
+                component="a"
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <TwitterIcon fontSize="small" />
+              </IconButton>
+            </Tooltip>
+            <Tooltip title="Instagram" arrow>
+              <IconButton
+                component="a"
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <InstagramIcon fontSize="small" />
+              </IconButton>
+            </Tooltip>
+
+            {/* Notifs et compte */}
+            <Tooltip title="Notifications" arrow>
+              <IconButton color="inherit">
+                <NotificationsIcon />
+              </IconButton>
+            </Tooltip>
+            <Tooltip title="Se deconnecter" arrow>
+              <IconButton onClick={() => navigate("/")} color="inherit">
+                <Logout />
+              </IconButton>
+            </Tooltip>
+
+          </div>
+        </Toolbar>
+      </AppBar>
+      {/* Spacer */}
+      <div className="h-16 sm:h-20" />
+    </motion.header>
+  );
+}
